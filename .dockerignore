@@ -21,7 +21,6 @@ backend/tests/
 
 # Docs and misc
 *.md
-*.txt
 
 # Docker
 Dockerfile
