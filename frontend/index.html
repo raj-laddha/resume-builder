@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+</head>
+
+<body>
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>Resume Builder</h1>
+        <p>Create tailored resumes with AI assistance</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Input Sections (Collapsible) -->
+        <div class="input-sections" id="input-sections">
+            <div class="sections-header" id="sections-header">
+                <h2>Setup Your Resume</h2>
+                <button class="collapse-toggle" id="collapse-toggle">
+                    <span class="collapse-text">Collapse</span>
+                    <span class="chevron">▲</span>
+                </button>
+            </div>
+
+            <div class="sections-content" id="sections-content">
+                <div class="sections-grid">
+                    <!-- User Profile Section -->
+                    <div class="section profile-section">
+                        <h3>User Profile</h3>
+                        <div class="upload-area">
+                            <div class="upload-box" id="upload-box">
+                                <div class="upload-icon-container">
+                                    <div class="upload-icon">📄</div>
+                                    <div class="upload-success" id="upload-success">
+                                        <div class="success-icon">✓</div>
+                                    </div>
+                                </div>
+                                <p>Upload your existingresume or profile document</p>
+                                <p class="file-types">Supported: PDF, DOC, DOCX, TXT (Max 5MB)</p>
+                                <input type="file" id="file-input" accept=".pdf,.doc,.docx,.txt" hidden>
+                                <button class="upload-btn" id="upload-btn">Choose File</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job Description Section -->
+                    <div class="section job-section">
+                        <h3>Job Description</h3>
+                        <textarea id="job-description" placeholder="Paste the job description here..."
+                            rows="6"></textarea>
+                        <div class="job-actions">
+                            <button class="submit-btn" id="submit-job-btn">Submit Job Description</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generate Resume Button -->
+                <div class="generate-section">
+                    <button class="generate-btn" id="generate-btn">Generate Resume</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resume Preview Section -->
+        <div class="preview-container">
+            <div class="preview-section">
+                <div class="preview-header">
+                    <h2>Resume Preview</h2>
+                    <button class="export-btn" id="export-btn">Download PDF</button>
+                </div>
+                <div class="resume-preview" id="resume-preview">
+                    <div class="placeholder-content">
+                        <div class="placeholder-icon">📋</div>
+                        <h3>Your resume will appear here</h3>
+                        <p>Upload your profile and job description, then click "Generate Resume" to get started.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Sidebar -->
+    <div class="chat-sidebar" id="chat-sidebar">
+        <div class="chat-header">
+            <h3>AI Assistant</h3>
+            <button class="collapse-chat-btn" id="collapse-chat-btn">◀</button>
+        </div>
+        <div class="chat-body">
+            <div class="chat-messages" id="chat-messages">
+                <div class="message agent-message">
+                    <div class="message-content">
+                        Hi! I'm here to help you refine your resume. Feel free to ask me any questions or request
+                        changes.
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type your message...">
+                <button class="send-btn" id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Expand Bar -->
+    <div class="chat-expand-bar hidden" id="expand-chat-btn">
+        <div class="chat-expand-content">
+            <div class="chat-bubble-icon"></div>
+            <div class="chat-expand-text">Chat</div>
+        </div>
+    </div>
+
+    <!-- Chat Overlay -->
+    <div class="chat-overlay" id="chat-overlay"></div>
+
+    <script src="/static/main.js"></script>
+</body>
+
+</html>

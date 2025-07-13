@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Git
+.git
+.gitignore
+
+# OS files
+.DS_Store
+
+# Tests and cache
+.pytest_cache/
+tests/
+backend/tests/
+
+# Docs and misc
+*.md
+*.txt
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Env files
+.env
+.env.* 
