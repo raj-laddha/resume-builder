@@ -263,7 +263,11 @@ function connectWebSocket() {
         return;
     }
 
-    const wsUrl = `ws://localhost:8000/ws/${sessionId}`;
+    // Dynamically determine ws/wss and host
+    const wsProtocol = window.location.protocol === "https:" ? "wss" : "ws";
+    const wsHost = window.location.host;
+    const wsPath = `/ws/${sessionId}`;
+    const wsUrl = `${wsProtocol}://${wsHost}${wsPath}`;
     ws = new WebSocket(wsUrl);
 
     ws.onopen = () => {
